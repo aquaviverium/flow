@@ -6,17 +6,69 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 02:38:19 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 00:34:12 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 01:19:42 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "out.h"
+#include "master.h"
+
+void	SDL_RenderDrawPoint_Wrapper(void *ptr, int x, int y)
+{
+	SDL_Renderer	*renderer;
+
+	renderer = ptr;
+	SDL_RenderDrawPoint(renderer, x, y);
+}
+
+void	draw_circle(t_vector2f pos)
+{
+	int			i;
+	t_display	*display;
+	t_circle	circle;
+
+	i = 0;
+	circle.pos = pos;
+	display = get_display();
+	SDL_SetRenderDrawColor(display->renderer, 100, 200, 255, SDL_ALPHA_OPAQUE);
+	while (i < 5)
+	{
+		circle.radius = i;
+		out_circle(circle, SDL_RenderDrawPoint_Wrapper, display->renderer);
+		i++;
+	}
+	SDL_SetRenderDrawColor(display->renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+}
+
+void	render_particles(void)
+{
+	int				i;
+	t_display		*display;
+	t_app_context	*app;
+
+	i = 0;
+	app = get_app_context();
+	display = get_display();
+
+	t_vector2f pos;
+
+	pos.x = 500;
+	pos.y = 500;
+
+	draw_circle(pos);
+
+	// while (i < app->current_particles)
+	// {
+	// 	i++;
+	// }
+}
 
 void	render_loop(void)
 {
 	t_display	*display;
 
 	display = get_display();
+
+	render_particles();
 
 	SDLU_SetRenderDrawColor(0x000000);
 }

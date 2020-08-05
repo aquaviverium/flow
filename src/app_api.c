@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   app_api.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/06 03:05:42 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 01:02:47 by home             ###   ########.fr       */
+/*   Created: 2020/08/05 00:50:30 by home              #+#    #+#             */
+/*   Updated: 2020/08/05 01:01:45 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#include "master.h"
 
-# include <SDL2/SDL.h>
-# include <stdbool.h>
-
-# include "more_math.h"
-
-typedef struct	s_particulate
+t_app_context	*set_app_context(t_app_context *app_context)
 {
-	int			age;
+	static t_app_context *ptr;
 
-	t_vector2f	pos;
-	t_vector2f	vel;
-}				t_particulate;
+	if (ptr == NULL && app_context != NULL)
+		ptr = app_context;
 
-typedef struct	s_app_context
+	return (ptr);
+}
+
+t_app_context	*get_app_context(void)
 {
-	int				particle_cap;
-	int				current_particles;
+	t_app_context *result;
 
-	t_particulate	*particle_buffer;
-	t_particulate	*particles;
-
-}				t_app_context;
-
-#endif
+	result = set_app_context(NULL);
+	return (result);
+}

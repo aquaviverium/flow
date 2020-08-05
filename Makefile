@@ -16,6 +16,7 @@ OUT_NAMES = \
 
 # List of all the source files.
 SRC_NAMES = \
+	app_api \
 	main \
 	update \
 
