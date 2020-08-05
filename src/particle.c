@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   particle.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/06 03:05:42 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 02:04:25 by home             ###   ########.fr       */
+/*   Created: 2020/08/05 01:59:11 by home              #+#    #+#             */
+/*   Updated: 2020/08/05 02:19:37 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#include "master.h"
 
-# include <SDL2/SDL.h>
-# include <stdbool.h>
-
-# include "more_math.h"
-
-typedef struct	s_particulate
+void	spawn_particle(t_particulate *self)
 {
-	int			age;
-
 	t_vector2f	pos;
 	t_vector2f	vel;
-}				t_particulate;
 
-typedef struct	s_app_context
+	pos.x = 500;
+	pos.x = 500;
+
+	vel.y = 10;
+	vel.y = 10;
+
+	self->age = 0;
+
+	self->pos = pos;
+	self->vel = vel;
+}
+
+void	update_particle(t_particulate *self)
 {
-	int				particle_cap;
-	int				current_particles;
+	self->pos.x += self->vel.x;
+	self->pos.y += self->vel.y;
 
-	t_particulate	*particle_buffer;
-	t_particulate	*particles;
+	//boundary_check
 
-}				t_app_context;
+	self->age++;
+}
 
-#endif
+void	despawn_partile(t_particulate *self)
+{
+	t_app_context	*app;
+
+	app = get_app_context();
+	app->current_particles--;
+	self->age = -1;
+}
