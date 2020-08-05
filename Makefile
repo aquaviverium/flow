@@ -8,6 +8,8 @@ SRC_DIR = src/
 BIN_DIR = bin/
 
 OUT_NAMES = \
+	clerp \
+	clerp_control_flow \
 	draw_vector \
 	input \
 	out \

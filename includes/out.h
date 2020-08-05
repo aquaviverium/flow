@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 03:05:42 by home              #+#    #+#             */
-/*   Updated: 2020/08/04 22:58:14 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 01:33:49 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ void		ctoRGB(int color, int *r, int *g, int *b);
 void		SDLU_SetRenderDrawColor(int color);
 
 void		out(void);
+
+void		set_color(int val, int *r, int *g, int *b);
+int			clerp(int color1, int color2, int t, int tmax);
 
 #endif

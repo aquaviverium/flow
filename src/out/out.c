@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 02:38:19 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 01:19:42 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 01:39:56 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ void	SDL_RenderDrawPoint_Wrapper(void *ptr, int x, int y)
 	SDL_RenderDrawPoint(renderer, x, y);
 }
 
-void	draw_circle(t_vector2f pos)
+void	draw_circle(t_vector2f pos, int age)
 {
 	int			i;
 	t_display	*display;
 	t_circle	circle;
+	int			r, g, b;
 
 	i = 0;
 	circle.pos = pos;
 	display = get_display();
-	SDL_SetRenderDrawColor(display->renderer, 100, 200, 255, SDL_ALPHA_OPAQUE);
-	while (i < 5)
+	set_color(age, &r, &g, &b);
+	SDL_SetRenderDrawColor(get_display()->renderer, r, g, b, SDL_ALPHA_OPAQUE);
+	while (i < 10)
 	{
 		circle.radius = i;
 		out_circle(circle, SDL_RenderDrawPoint_Wrapper, display->renderer);
@@ -51,11 +53,14 @@ void	render_particles(void)
 
 	t_vector2f pos;
 
+	static int	age;
+
 	pos.x = 500;
 	pos.y = 500;
 
-	draw_circle(pos);
+	draw_circle(pos, age);
 
+	age++;
 	// while (i < app->current_particles)
 	// {
 	// 	i++;
