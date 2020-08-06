@@ -6,27 +6,45 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:59:11 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 02:19:37 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 17:50:40 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "master.h"
 
-void	spawn_particle(t_particulate *self)
+#define CLIP_DIST (20)
+
+bool	out_of_bounds(t_particulate *self)
 {
-	t_vector2f	pos;
-	t_vector2f	vel;
+	bool	result;
 
-	pos.x = 500;
-	pos.x = 500;
+	result = false;
+	if (self->pos.x <= CLIP_DIST + 30)
+		result = true;
+	else if (self->pos.x >= WIN_WIDTH + CLIP_DIST)
+		result = true;
+	else if (self->pos.y <= -CLIP_DIST)
+		result = true;
+	else if (self->pos.y >= WIN_HEIGHT + CLIP_DIST)
+		result = true;
+	return (result);
+}
 
-	vel.y = 10;
-	vel.y = 10;
+void	spawn_particle(t_particulate *self, t_vector2f pos)
+{
+	static t_vector2f	vel;
+
+	get_app_context()->current_particles++;
+
+	vel.x = -2;
+	vel.y += .1;
 
 	self->age = 0;
 
 	self->pos = pos;
 	self->vel = vel;
+
+	printf("Spawned %d\n", get_app_context()->current_particles);
 }
 
 void	update_particle(t_particulate *self)
@@ -34,12 +52,13 @@ void	update_particle(t_particulate *self)
 	self->pos.x += self->vel.x;
 	self->pos.y += self->vel.y;
 
-	//boundary_check
-
 	self->age++;
+
+	if (out_of_bounds(self) == true)
+		despawn_particle(self);
 }
 
-void	despawn_partile(t_particulate *self)
+void	despawn_particle(t_particulate *self)
 {
 	t_app_context	*app;
 

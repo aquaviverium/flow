@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 03:05:42 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 02:04:25 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 16:38:43 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_particulate
 
 typedef struct	s_app_context
 {
+	int				time;
 	int				particle_cap;
 	int				current_particles;
 

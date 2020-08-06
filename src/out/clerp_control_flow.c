@@ -1,6 +1,6 @@
 #include "out.h"
 
-#define C_SCALE (1)
+#define C_SCALE (2)
 
 void	set_color(int val, int *r, int *g, int *b)
 {

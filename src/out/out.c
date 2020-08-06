@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 02:38:19 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 01:50:27 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 02:35:07 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw_circle(t_particulate particle)
 	circle.pos = particle.pos;
 	set_color(particle.age, &r, &g, &b);
 	SDL_SetRenderDrawColor(get_display()->renderer, r, g, b, SDL_ALPHA_OPAQUE);
-	while (i < 10)
+	while (i < 5)
 	{
 		circle.radius = i;
 		out_circle(circle, SDL_RenderDrawPoint_Wrapper, display->renderer);

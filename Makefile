@@ -20,6 +20,7 @@ OUT_NAMES = \
 SRC_NAMES = \
 	app_api \
 	main \
+	particle \
 	update \
 
 # List of all the source files, folders are to be added by
