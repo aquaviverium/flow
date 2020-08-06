@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 02:38:32 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 17:47:09 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 20:06:39 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	update_app_state(t_app_context *app_state);
 
 void	update_particle(t_particulate *self);
 void	despawn_particle(t_particulate *self);
-void	spawn_particle(t_particulate *self, t_vector2f pos);
+void	spawn_particle(t_particulate *self, t_vector2f pos, t_vector2f vel);
 
 
 #endif

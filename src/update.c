@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 20:52:34 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 17:50:54 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 20:07:15 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void		update_app_state(t_app_context *app_state)
 
 	if (app_state->time % 20 == 0)
 	{
-		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 100});
-		// spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 200});
-		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 300});
-		// spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 400});
-		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 500});
-		// spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 600});
-		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 700});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 100}, (t_vector2f){-1, 0});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 200}, (t_vector2f){-1, 0});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 300}, (t_vector2f){-1, 0});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 400}, (t_vector2f){-1, 0});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 500}, (t_vector2f){-1, 0});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 600}, (t_vector2f){-1, 0});
+		spawn_particle(&(app_state->particles[app_state->current_particles]), (t_vector2f){WIN_WIDTH, 700}, (t_vector2f){-1, 0});
 	}
 }

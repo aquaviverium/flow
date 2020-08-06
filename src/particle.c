@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 01:59:11 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 17:50:40 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 20:06:29 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,9 @@ bool	out_of_bounds(t_particulate *self)
 	return (result);
 }
 
-void	spawn_particle(t_particulate *self, t_vector2f pos)
+void	spawn_particle(t_particulate *self, t_vector2f pos, t_vector2f vel)
 {
-	static t_vector2f	vel;
-
 	get_app_context()->current_particles++;
-
-	vel.x = -2;
-	vel.y += .1;
 
 	self->age = 0;
 
