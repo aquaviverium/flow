@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 03:05:42 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 16:38:43 by home             ###   ########.fr       */
+/*   Updated: 2021/03/12 23:39:26 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct	s_app_context
 
 	t_particulate	*particle_buffer;
 	t_particulate	*particles;
+
+	t_vector2f		flow;
 
 }				t_app_context;
 

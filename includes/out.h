@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 03:05:42 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 01:33:49 by home             ###   ########.fr       */
+/*   Updated: 2021/03/12 23:43:38 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 
 # include <SDL2/SDL.h>
-# include <SDL_image.h>
+# include <SDL2/SDL_image.h>
 
 # include "color.h"
 # include "more_math.h"

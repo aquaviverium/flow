@@ -6,7 +6,7 @@
 /*   By: home <home@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 02:31:10 by home              #+#    #+#             */
-/*   Updated: 2020/08/05 17:35:19 by home             ###   ########.fr       */
+/*   Updated: 2020/08/05 20:57:59 by home             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@ void	app_context_initialize(t_app_context *app_state)
 
 	app_state->time = 0;
 
-	app_state->particle_cap = 500;
+	app_state->particle_cap = 10000;
 	app_state->current_particles = 0;
 
 	app_state->particles = calloc(app_state->particle_cap, sizeof(*(app_state->particles)));
 	app_state->particle_buffer = calloc(app_state->particle_cap, sizeof(*(app_state->particle_buffer)));
+
+	app_state->flow.x = -.3;
+	app_state->flow.y = 0;
 }
 
 int	main(void)
